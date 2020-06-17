@@ -9,6 +9,7 @@ export default function useLocalAudioToggle() {
   const audioTrack = localTracks.find(track => track.kind === 'audio') as LocalAudioTrack;
   const isEnabled = useIsTrackEnabled(audioTrack);
   const isStopped = useIsLocalTrackStopped(audioTrack);
+  console.log(`useLocalAudioToggle isEnabled=${isEnabled}, isStopped=${isStopped} audioTrack:`, audioTrack);
 
   const toggleAudioEnabled = useCallback(() => {
     if (audioTrack && !isStopped) {

@@ -1,4 +1,4 @@
-// import { isMobile, isSafari } from '../../../utils';
+import { isMobile } from '../../../utils';
 import { useEffect, useRef } from 'react';
 import useLocalVideoToggle from '../../../hooks/useLocalVideoToggle/useLocalVideoToggle';
 import useVideoContext from '../../../hooks/useVideoContext/useVideoContext';
@@ -19,10 +19,9 @@ export default function AttachVisibilityHandler() {
   const shouldRepublishVideoOnForeground = useRef(false);
 
   useEffect(() => {
-    if (false) {
+    if (isMobile) {
       const handleVisibilityChange = () => {
         // We don't need to unpublish the local video track if it has already been unpublished
-        console.log('handling visibility change');
         if (document.visibilityState === 'hidden' && isVideoEnabled) {
           shouldRepublishVideoOnForeground.current = true;
           toggleVideoEnabled();
