@@ -94,10 +94,10 @@ export default function MenuBar() {
 
   const handleRedirect = () => {
     getToken(name, roomName).then(token => {
-      // const hostUrl = 'https://makarandp0.github.io/twilioapi';
+      const hostUrl = 'https://makarandp0.github.io/twilio/es6/';
+      // const { protocol, host } = window.location;
+      // const hostUrl = `${protocol}//${host}/apidemo/index.html`;
       const params = new window.URLSearchParams({ token, name, room: roomName, autoJoin: 'true' });
-      const { protocol, host } = window.location;
-      const hostUrl = `${protocol}//${host}/apidemo/index.html`;
       window.location.href = `${hostUrl}?${params}`;
     });
   };
